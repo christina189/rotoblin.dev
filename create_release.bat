@@ -27,7 +27,7 @@ copy /Y "build\rotoblin.smx" "%TEMP_DIR%\addons\sourcemod\plugins\rotoblin.smx"
 REM Finally, zip up the release folder using 7zip
 echo zipping release dir
 
-set "PACKAGED_ZIP=characterselection_release.zip"
+set "PACKAGED_ZIP=rotoblin_release.zip"
 if exist %PACKAGED_ZIP% (
 del /F /Q %PACKAGED_ZIP%
 )
