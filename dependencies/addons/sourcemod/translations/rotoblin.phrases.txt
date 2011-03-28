@@ -1,0 +1,120 @@
+﻿"Phrases"
+{
+	"Survivors"
+	{
+		"en"			"Survivors"
+	}
+
+	"Infected"
+	{
+		"en"			"Infected"
+	}
+
+	"Spectators"
+	{
+		"en"			"Spectators"
+	}
+
+	"Pause - *SPEC*"
+	{
+		"en"			"*SPEC*"
+	}
+
+	"Pause - Request"
+	{
+		"#format"		"{1:s},{2:s},{3:s}"
+		"en"			"The {1} have requested a pause. The {2} can accept with the {3:s} command."
+	}
+
+	"Pause - Accepted"
+	{
+		"#format"		"{1:s}"
+		"en"			"Both teams have agreed to pause. Use {1} to resume the game."
+	}
+
+	"Pause - Disabled"
+	{
+		"en"			"Pausing have been disabled."
+	}
+
+	"Pause - Not from rcon"
+	{
+		"en"			"Pause cannot be used from rcon."
+	}
+
+	"Pause - Spectators can not pause"
+	{
+		"en"			"Spectators can not pause the game."
+	}
+
+	"Pause - Already paused"
+	{
+		"#format"		"{1:s}"
+		"en"			"Game is already paused. Use {1} to resume the game."
+	}
+
+	"Pause - Forced"
+	{
+		"en"			"The game has been paused by an admin."
+	}
+
+	"Force pause - Not from rcon"
+	{
+		"en"			"Force pause cannot be used from rcon."
+	}
+
+	"Unpause - Not from rcon"
+	{
+		"en"			"Unpause cannot be used from rcon.
+	}
+
+	"Unpause - Game is not paused"
+	{
+		"#format"		"{1:s}"
+		"en"			"The game is not paused, you can request a pause with the {1} command."
+	}
+
+	"Unpuase - Already unpausing"
+	{
+		"en"			"The game is already unpausing."
+	}
+
+	"Unpause - Resuming"
+	{
+		"#format"		"{1:s}"
+		"en"			"The {1:s} unpaused the game."
+	}
+
+	"Unpause - Spectators can not unpause"
+	{
+		"en"			"Spectators can not unpause the game."
+	}
+
+	"Unpause - Only admin can unpause"
+	{
+		"#format"		"{1:s}"
+		"en"			"The game was paused by an admin and can only be unpaused with {1}."
+	}
+
+	"Unpause - Forced"
+	{
+		"en"			"The game has been unpaused by an admin."
+	}
+
+	"Unpause - Countdown - Will resume"
+	{
+		"#format"		"{1:i}"
+		"en"			"Game will resume in {1}..."
+	}
+
+	"Unpause - Countdown"
+	{
+		"#format"		"{1:i}"
+		"en"			"{1}..."
+	}
+
+	"Unpause - Countdown - Done"
+	{
+		"en"			"Game is Live!"
+	}
+}
