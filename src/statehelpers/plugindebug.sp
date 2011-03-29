@@ -68,7 +68,7 @@ public _PluginDebug_OnPluginStart()
 	g_hChannelsTrie = CreateTrie();
 
 	// Setup the all modules channel
-	DebugAddChannel(CHANNEL_ALL_NAME);
+	Debug_AddChannel(CHANNEL_ALL_NAME);
 
 	decl Handle:cvar;
 	cvar = CreateConVarEx("debug_channel", "0", "Sum of debug channel flags.", FCVAR_PLUGIN);
@@ -165,7 +165,7 @@ public Action:_PD_Status_Command(client, args)
  * @param channelName	Name of the channel.
  * @return				Channel index.
  */
-stock DebugAddChannel(const String:channelName[])
+stock Debug_AddChannel(const String:channelName[])
 {
 	new channelIndex = g_iNextChannel_Index;
 	new channelFlag = g_iNextChannel_Flag;
@@ -193,7 +193,7 @@ stock DebugAddChannel(const String:channelName[])
  * @param ...			Variable number of format parameters.
  * @noreturn
  */
-stock PrintDebugText(channelIndex, const String:format[], any:...)
+stock Debug_PrintText(channelIndex, const String:format[], any:...)
 {
 	if (g_iOutputFlags == 0) return;
 

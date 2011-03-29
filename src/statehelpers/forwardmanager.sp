@@ -31,7 +31,7 @@
  * ==================================================
  */
 
-#define MAX_GLOBAL_FORWARDS 9
+#define MAX_GLOBAL_FORWARDS 10
 
 /*
  * ==================================================
@@ -55,7 +55,8 @@ enum GlobalForwardType
 	Handle:GFwd_OnMapStart,
 	Handle:GFwd_OnMapEnd,
 	Handle:GFwd_OnClientPutInServer,
-	Handle:GFwd_OnClientDisconnect
+	Handle:GFwd_OnClientDisconnect,
+	Handle:GFwd_OnPlayerRunCmd
 }
 
 /*
@@ -88,6 +89,7 @@ public _ForwardManager_OnPluginStart()
 	g_hForwards[GFwd_OnMapEnd] 						= CreateForward(ET_Ignore);
 	g_hForwards[GFwd_OnClientPutInServer] 			= CreateForward(ET_Ignore, Param_Cell);
 	g_hForwards[GFwd_OnClientDisconnect] 			= CreateForward(ET_Ignore, Param_Cell);
+	g_hForwards[GFwd_OnPlayerRunCmd] 				= CreateForward(ET_Event, Param_Cell, Param_CellByRef, Param_CellByRef, Param_Array, Param_Array, Param_CellByRef);
 }
 
 /**
@@ -203,6 +205,33 @@ public OnClientDisconnect(client)
 	Call_StartForward(g_hForwards[GFwd_OnClientDisconnect]);
 	Call_PushCell(client);
 	Call_Finish();
+}
+
+/**
+ * Called when a clients movement buttons are being processed.
+ *
+ * @param client		Index of the client.
+ * @param buttons		Copyback buffer containing the current commands (as bitflags - see entity_prop_stocks.inc).
+ * @param impulse		Copyback buffer containing the current impulse command.
+ * @param vel			Players desired velocity.
+ * @param angles		Players desired view angles.
+ * @param weapon		Entity index of the new weapon if player switches weapon, 0 otherwise.
+ * @return				Plugin_Handled to block the commands from being processed, Plugin_Continue otherwise.
+ */
+public Action:OnPlayerRunCmd(client, &buttons, &impulse, Float:vel[3], Float:angles[3], &weapon)
+{
+	if (client == 0) return Plugin_Continue; // Don't forward server index
+
+	new Action:result = Plugin_Continue;
+	Call_StartForward(g_hForwards[GFwd_OnPlayerRunCmd]);
+	Call_PushCell(client);
+	Call_PushCellRef(buttons);
+	Call_PushCellRef(impulse);
+	Call_PushArray(vel, 3);
+	Call_PushArray(angles, 3);
+	Call_PushCellRef(weapon);
+	Call_Finish(_:result);
+	return result;
 }
 
 /*

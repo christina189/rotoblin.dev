@@ -221,7 +221,7 @@ public Action:_P_Say_Command(client, const String:command[], args)
 	{
 		FOR_EACH_CLIENT_IN_GAME(i)
 		{
-			PrintToChat(i, "\x01%t \x03%N\x01 : %s", "*SPEC*", client, buffer);
+			PrintToChat(i, "\x01%t \x03%N\x01 : %s", "Pause - *SPEC*", client, buffer);
 		}
 	}
 	else

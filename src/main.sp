@@ -214,14 +214,14 @@ static bool:CheckPluginDependencies(String:error[], err_max)
 		return false; // Plugin does not support client listen servers, return
 	}
 
-	/*decl String:buffer[128];
+	decl String:buffer[128];
 	GetGameFolderName(buffer, 128);
 
 	if (!StrEqual(buffer, "left4dead", false))
 	{
 		strcopy(error, err_max, "Plugin only support Left 4 Dead");
 		return false; // Plugin does not support this game, return
-	}*/
+	}
 
 	return true;
 }
