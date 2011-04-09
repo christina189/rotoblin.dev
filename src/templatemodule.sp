@@ -55,6 +55,8 @@
  * --------------------
  */
 
+static					g_iDebugChannel;
+
 /*
  * ==================================================
  *                     Forwards
@@ -68,8 +70,12 @@
  */
 public _ModuleName_OnPluginStart()
 {
+	g_iDebugChannel = Debug_AddChannel("ModuleName");
+
 	HookGlobalForward(GFwd_OnPluginEnabled, _MN_OnPluginEnabled);
 	HookGlobalForward(GFwd_OnPluginDisabled, _MN_OnPluginDisabled);
+
+	Debug_PrintTextEx("Module start");
 }
 
 /**
@@ -80,6 +86,7 @@ public _ModuleName_OnPluginStart()
 public _ModuleName_OnPluginEnd()
 {
 	
+	Debug_PrintTextEx("Module end");
 }
 
 /**
@@ -90,6 +97,7 @@ public _ModuleName_OnPluginEnd()
 public _MN_OnPluginEnabled()
 {
 	
+	Debug_PrintTextEx("Module enabled");
 }
 
 /**
@@ -100,6 +108,7 @@ public _MN_OnPluginEnabled()
 public _MN_OnPluginDisabled()
 {
 	
+	Debug_PrintTextEx("Module disabled");
 }
 
 /*
@@ -113,3 +122,17 @@ public _MN_OnPluginDisabled()
  *                    Private API
  * ==================================================
  */
+
+/**
+ * Wrapper for Debug_PrintText without having to define debug channel.
+ *
+ * @param format		Formatting rules.
+ * @param ...			Variable number of format parameters.
+ * @noreturn
+ */
+static Debug_PrintTextEx(const String:format[], any:...)
+{
+	decl String:buffer[256];
+	VFormat(buffer, sizeof(buffer), format, 2);
+	Debug_PrintText(g_iDebugChannel, buffer);
+}

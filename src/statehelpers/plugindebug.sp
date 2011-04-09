@@ -40,6 +40,7 @@
 static	const			OUTPUT_TO_SERVER				= (1 << 0);
 static	const			OUTPUT_TO_CHAT					= (1 << 1);
 static	const			OUTPUT_TO_LOG					= (1 << 2);
+
 static	const			CHANNEL_ALL_FLAG				= (1 << 0);
 static	const	String:	CHANNEL_ALL_NAME[]				= "All modules";
 static	const	String:	CHANNEL_KEY_NAME[]				= "_name";

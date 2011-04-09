@@ -94,6 +94,7 @@ static			bool:	g_bWasLateLoaded = false;
 #include "helpers.sp"
 #include "statehelpers.sp"
 #include "pause.sp"
+#include "huntingriflelimit.sp"
 
 /*
  * ==================================================
@@ -156,6 +157,7 @@ public OnPluginStart()
 	/* Modules */
 	_StateHelpers_OnPluginStart(); // To be loaded first
 	_Pause_OnPluginStart();
+	_HRLimit_OnPluginStart();
 
 	//AutoExecConfig(true, PLUGIN_SHORTNAME);
 }

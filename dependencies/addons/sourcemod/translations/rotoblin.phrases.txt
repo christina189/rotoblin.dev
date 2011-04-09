@@ -15,6 +15,16 @@
 		"en"			"Spectators"
 	}
 
+	"Hunting rifle limit - At maximum"
+	{
+		"en"			"Your team has already picked up the maximum amount of hunting rifles."
+	}
+
+	"Hunting rifle limit - Not allowed"
+	{
+		"en"			"Hunting rifle is not allowed."
+	}
+
 	"Pause - *SPEC*"
 	{
 		"en"			"*SPEC*"
